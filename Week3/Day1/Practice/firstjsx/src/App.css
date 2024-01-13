@@ -1,0 +1,10 @@
+.App {
+  margin: 20px;
+}
+.list{
+  list-style-type:"*";
+  
+}
+.list li{
+  padding-left: 10px;
+}
