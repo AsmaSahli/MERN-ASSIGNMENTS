@@ -1,15 +1,26 @@
+
 import React, { useState } from 'react';
 
-const UserForm = () => {    const [firstName,setFirstName] = useState("")
+const UserForm = () => {    
+const [firstName,setFirstName] = useState("")
 const [lastName,setLastName] = useState("")
 const [email,setEmail] = useState("")
 const [password,setPassword] = useState("")
 const [confirm,setConfirm] = useState("")
 
+const handleOnSubmit =(e)=>{
+  e.preventDefault();
+  setFirstName("")
+  setLastName("")
+  setEmail("")
+  setPassword("")
+  setConfirm("")
+}
+
 
 return (
 <div>
-    <form > 
+    <form onSubmit={handleOnSubmit} > 
         <div >
                 <label htmlFor="firstName" className="form-label">First Name</label>
                 <input type="text" name="Firstname" className="form-control" value={firstName}  onChange={(e)=> setFirstName(e.target.value) }/>
@@ -43,6 +54,7 @@ return (
             <input type="password" className="form-control" value={confirm} onChange={(e)=>setConfirm(e.target.value)}/>
             {confirm !== password ? <p>Passwords must match</p> : null}
         </div>
+        <button type="submit" className='btn btn-success'>submit</button>
         <h6>Your Form data</h6>
     </form> 
     <div className="card">

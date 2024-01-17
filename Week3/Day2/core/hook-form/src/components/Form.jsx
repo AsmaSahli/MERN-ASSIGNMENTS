@@ -12,7 +12,7 @@ const Form = (props) => {
      
   return (
     <div>
-        <form >
+        <form  >
             <div >
                     <label htmlFor="firstName" className="form-label">First Name</label>
                     <input type="text" className="form-control" value={firstName}  onChange={(e)=>setFirstName(e.target.value)}/>
