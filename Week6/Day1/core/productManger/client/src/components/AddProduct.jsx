@@ -5,6 +5,7 @@ const AddProduct = () => {
     const [title,setTitle]=useState("")
     const[price,setPrice]=useState()
     const [description,setDescription]=useState("")
+    const [errors, setErrors] = useState([]); 
 
     const productHandler=(event)=>{
         event.preventDefault()
@@ -22,17 +23,31 @@ const AddProduct = () => {
                     setDescription("")
                 }
             )
-            .catch(err=> console.log("err",res.data))
+            .catch(err=>{
+                const errorResponse = err.response.data.errors;
+                const errorArr = []; 
+                for (const key of Object.keys(errorResponse)) { 
+                    errorArr.push(errorResponse[key].message)
+                }
+                setErrors(errorArr);
+            }) 
     }
 
   return (
     <>
         
         <form onSubmit={productHandler}>
+
+                
         <div className="container">
 
         <h1>Product Manager</h1>
-            
+
+            <div className="err">
+            {errors.map((err, index) => (
+                    <p key="{index}" style={{color:'red', fontSize:'small'}} >{err}</p>
+                ))}
+            </div>
             <div className="formGroup">
                 <label htmlFor="title">Title</label>
                 <input type="text" id='title' value={title} onChange={(event) => setTitle(event.target.value)}/>

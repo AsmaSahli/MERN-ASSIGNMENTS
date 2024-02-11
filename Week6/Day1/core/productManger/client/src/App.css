@@ -53,6 +53,11 @@ button{
   flex-direction: column;
   gap: 20px;
 
+  .err{
+    display: flex;
+    flex-direction: column;
+    line-height: 0; 
+  }
 
 }
 label {
