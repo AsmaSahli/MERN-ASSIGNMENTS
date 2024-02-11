@@ -67,7 +67,7 @@ const UpdatePet = () => {
       <input type="text" id="name" className="form-control" value={petName} onChange={(event) => setPetName(event.target.value)} />
     </div>
     <div className="mb-3 form-check">
-      The animal is sick?<input type="checkbox" id="sick" className="form-check-input" checked={sick} onChange={(event) => setSick(event.target.checked)} />
+      The animal is sick ?<input type="checkbox" id="sick" className="form-check-input" checked={sick} onChange={(event) => setSick(event.target.checked)} />
     </div>
     <div className="mb-3">
       <label htmlFor="legs" className="form-label">Number of Legs</label>
