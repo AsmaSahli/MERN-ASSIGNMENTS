@@ -5,7 +5,6 @@ import { Route, Routes } from 'react-router-dom';
 import AuthorsList from './components/AuthorsList';
 import AddNewAuthor from './components/AddNewAuthor';
 import EditAuthor from './components/EditAuthor';
-import Header from './components/Header';
 
 function App() {
   return (
@@ -13,7 +12,7 @@ function App() {
         <Routes>
             {<Route path="/authors" element={<AuthorsList/>}  />}
             {<Route path="/authors/new" element={<AddNewAuthor/>}  />}
-            {<Route path="/authors/:id/edit" element={<EditAuthor/>}  />}
+            {<Route path="/authors/edit/:id" element={<EditAuthor/>}  />}
         </Routes>
       
     </div>
