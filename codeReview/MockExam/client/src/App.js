@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import '@fontsource/roboto/300.css';
+import DisplayOrders from './components/DisplayOrders';
+import NewPizza from './components/NewPizza';
+
+
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Routes>
+            {<Route path="/" element={<DisplayOrders/>}  />}
+            {<Route path="/New" element={<NewPizza/>}  />}
+
+        </Routes>
+        
     </div>
   );
 }
