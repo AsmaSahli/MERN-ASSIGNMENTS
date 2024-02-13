@@ -20,7 +20,6 @@ const NewPizza = () => {
             size,
             delivreyTime,
             notes,
-
             
         }
         axios.post("http://127.0.0.1:8000/api/Pizza/",newpizza)
@@ -89,7 +88,6 @@ return (
             InputLabelProps={{ shrink: true }}
             value={delivreyTime}
             onChange={(e) => setDelivreyTime(e.target.value)}
-            
         />
         </Grid>
 

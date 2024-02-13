@@ -12,7 +12,7 @@ require("./config/mongoose")
 
 const port=process.env.PORT
 
-require("./routes/Country.routes")(app)
+require("./routes/Player.routes")(app)
 
 
 app.listen(port,()=>console.log(`listening on port: ${port}`))

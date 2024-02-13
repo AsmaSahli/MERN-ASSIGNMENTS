@@ -86,15 +86,15 @@ const DisplayOrders = () => {
                         <TableCell>{pizza.pizzaName}</TableCell>
                         <TableCell>{pizza.size}</TableCell>
                         <TableCell>
-                          <Checkbox
-                          checked={pizza.isDelivered}
-                          onChange={() => updateDeliveredStatus(pizza._id, !pizza.isDelivered)}
-                          />
+                        <Checkbox
+                        checked={pizza.isDelivered}
+                        onChange={() => updateDeliveredStatus(pizza._id, !pizza.isDelivered)}
+                        />
                         </TableCell>
                         <TableCell>
                         <Button  variant="contained" color="error" onClick={()=>{deleteMe(pizza._id)}} >Remove</Button>
                         </TableCell>
-                      </TableRow>
+                    </TableRow>
                     )
                 })
             }
