@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
@@ -8,6 +8,7 @@ import {Table,TableBody, TableCell,TableContainer, TableHead,TableRow,Paper,Chec
 const DisplayOrders = () => {
     const [Pizza,setPizza]=useState([])
     const [showDelivered, setShowDelivered] = useState(true);
+    const nav=useNavigate()
 
     useEffect(()=>{
         axios.get('http://127.0.0.1:8000/api/Pizza/')
@@ -32,6 +33,7 @@ const DisplayOrders = () => {
             })
         
     }
+
     const updateDeliveredStatus = (pizzaId, isDelivered) => {
         axios.patch(`http://127.0.0.1:8000/api/Pizza/${pizzaId}`, { isDelivered })
           .then(res => {
@@ -53,15 +55,31 @@ const DisplayOrders = () => {
         setShowDelivered(true);
       };
 
+      const logout=()=>{
+        axios.post("http://127.0.0.1:8000/api/logout/",{},{withCredentials:true})
+        .then((res)=>{
+            nav("/")
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+      }
+
   return (
 
     <Container>
-                <Typography variant="h1" gutterBottom> Pizza Order</Typography>
-                <Link to={"/New"}><Button size='small' variant="contained" color="secondary"  >Order A pizza</Button></Link>
+
+                <Typography variant="h1" gutterBottom> Pizza Order</Typography> 
+                <div className="actions">
+                <Link to={"/New"}><Button  variant="contained" color="secondary"  >Order A pizza</Button></Link>
+                <Button  variant="contained" color="error" onClick={logout} >Logout</Button>
+
+                </div>
                 <div className="actions" >
                 <Typography variant="h4" gutterBottom> Find Stores in your area !</Typography>
                 <Button  variant="contained" color="primary" onClick={handleHideDelivered} >Hide delivred pizzas</Button>
                 <Button  variant="contained" color="success" onClick={handleShowDelivered} >Show delivred pizzas</Button>
+
                 </div>
 
 

@@ -26,7 +26,7 @@ const NewPizza = () => {
             .then(
                 res=>{
                     console.log("pizza Added successfully",res.data)
-                    nav('/')
+                    nav('/OrdersList')
                 }
             )
             .catch(err=>{
@@ -41,7 +41,7 @@ const NewPizza = () => {
 return (
     <Container maxWidth="sm">
     <br />
-    <Link to={"/"}>
+    <Link to={"/OrdersList"}>
         <Button variant="contained" color="primary">Go back Home</Button>
     </Link>
     <Typography variant="h3" gutterBottom>{size} {pizzaName} Pizza</Typography>
